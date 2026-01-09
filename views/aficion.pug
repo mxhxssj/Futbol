@@ -1,0 +1,58 @@
+extends ./layout/index
+
+block contenido
+    main.container.mt-5
+        h1.text-center.mt-5 #{pagina}
+
+        blockquote.text-center.mb-5
+            p
+                | La voz de la afición madridista alrededor del mundo 🤍
+
+
+
+        .row
+            .col-md-12
+                h2.d-block.w-100.text-center Comparte tu pasión por el Real Madrid
+
+                if (errores)
+                    each error in errores
+                        .alert.col.alert-danger.text-center=error.mensaje
+
+        .row.justify-content-center
+            .col-md-8
+                form(action="/aficion" method="POST")
+                    .form-group
+                        label(style="font-weight: bold;", for="nombre") Nombre
+                        input#nombre(
+                            type="text",
+                            placeholder="Tu nombre",
+                            name="nombre",
+                            class="form-control",
+                            value=nombre
+                        )
+
+                    .form-group
+                        label(style="font-weight: bold;", for="pais") País
+                        input#pais(
+                            type="text",
+                            placeholder="¿Desde dónde nos apoyas?",
+                            name="pais",
+                            class="form-control",
+                            value=pais
+                        )
+
+                    .form-group
+                        label(style="font-weight: bold;", for="comentario") Comentario
+                        textarea#comentario(
+                            class="form-control",
+                            name="comentario",
+                            placeholder="Tu mensaje como aficionado",
+                            rows=3
+                        )=comentario
+
+                    input.btn.btn-dark.btn-block.mt-3(
+                        type="submit",
+                        value="Enviar Comentario"
+                    )
+
+

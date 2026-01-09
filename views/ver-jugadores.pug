@@ -1,0 +1,30 @@
+extends ./layout/index
+
+block contenido
+    main.container.mt-5
+        h1.text-center.mb-5 #{pagina}
+
+        if jugadores.length === 0
+            p.text-center.text-muted No hay jugadores registrados todavía
+        else
+            .row.justify-content-center
+                each jugador in jugadores
+                    .col-md-6.col-lg-4.mb-4
+                        .card.shadow-lg.border-0.h-100
+                            .card-body.text-center
+                                h2.mb-3 #{jugador.nombre}
+
+                                p.mb-1
+                                    strong Posición:
+                                    |  #{jugador.posicion}
+
+                                p.mb-1
+                                    strong Nacionalidad:
+                                    |  #{jugador.nacionalidad}
+
+                                p.mb-3
+                                    strong Dorsal:
+                                    |  #{jugador.dorsal}
+
+                                span.badge.badge-dark.p-2
+                                    | Real Madrid

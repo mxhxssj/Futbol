@@ -1,0 +1,10 @@
+.row.aficion
+    each aficion in aficiones
+        .col-md-6.col-lg-4.mb-4
+            .card.shadow-lg.border-light
+                .card-body
+                    blockquote.blockquote
+                        p.mb-0.text-center
+                            | "#{aficion.comentario}"
+                    footer.blockquote-footer.text-right
+                        | — #{aficion.nombre}

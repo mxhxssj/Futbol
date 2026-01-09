@@ -1,0 +1,55 @@
+extends ./layout/index
+
+block contenido
+    main.container.mt-5
+        h1.text-center.mb-5 Crear Partido
+
+        if errores
+            each error in errores
+                .alert.alert-danger.text-center= error.mensaje
+
+        form(action="/crear-partido" method="POST" class="col-md-8 mx-auto")
+
+            .form-group.mb-3
+                label Rival
+                input.form-control(type="text" name="rival" value=rival)
+
+            .form-group.mb-3
+                label Fecha
+                input.form-control(type="date" name="fecha" value=fecha)
+
+            .form-group.mb-3
+                label Hora
+                input.form-control(type="time" name="hora" value=hora)
+
+            .form-group.mb-3
+                label Competición
+                select.form-control(name="competicion")
+                    option(value="" selected disabled) -- Seleccione una competición --
+                    option(value="LaLiga") LaLiga
+                    option(value="Champions League") Champions League
+                    option(value="Copa del Rey") Copa del Rey
+                    option(value="Amistoso") Amistoso
+
+            .form-group.mb-3
+                label Estadio
+                input.form-control(type="text" name="estadio" value=estadio)
+
+            .form-group.mb-3
+                label Imagen (1–9)
+                input.form-control(
+                    type="text"
+                    name="imagen"
+                    placeholder="Ej: 1"
+                    maxlength="1"
+                    pattern="[1-9]"
+                    inputmode="numeric"
+                    required
+                )
+
+            .form-group.mb-4
+                label Descripción
+                textarea.form-control(name="descripcion")= descripcion
+
+            button.btn.btn-success.btn-block(type="submit")
+                | Guardar Partido

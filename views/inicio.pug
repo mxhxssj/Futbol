@@ -1,0 +1,58 @@
+extends ./layout/index
+
+block slider
+    .slider
+
+        em pasión por el fútbol
+
+block contenido
+    main.container.mt-5
+        h2.text-center.mb-5 Sobre Nuestra Afición
+
+        .row.mb-5
+            //- Texto
+            .col-md-6
+                p
+                    | El fútbol no es solo un deporte, es una forma de vida. Nuestra afición
+                    | vive cada partido con intensidad, compromiso y respeto, acompañando
+                    | a los jugadores dentro y fuera del campo.
+                p
+                    | Cada viaje, cada encuentro y cada experiencia están pensados para
+                    | compartir la pasión por el fútbol con seguidores de todo el mundo.
+
+            //- Imagen
+            .col-md-6
+                img(
+                    src="/img/futbol3.jpg",
+                    alt="Nuestra afición",
+                    class="img-fluid rounded"
+                )
+
+
+
+
+    //- Bloque de promoción
+    .descuento
+        .container
+            .row
+                .col-md-6
+                    .contenido
+                        h3 5% de Descuento para Socios
+                        p.titulo Viaje a Canadá
+                        p.fecha 20 de Marzo de 2025 - 29 de Marzo de 2025
+                        p.precio 2.500 €
+
+                .col-md-6
+                    img(
+                        src="/img/canada2.jpg",
+                        alt="Nuestra afición",
+                        class="img-fluid rounded"
+                    )
+
+    //- Bloque Afición
+    .container
+        h2.mt-5.text-center ALGUNO DE VUESTROS COMENTARIOS
+        include ./layout/layout_aficcion
+
+
+

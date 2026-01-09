@@ -1,0 +1,31 @@
+extends ./layout/index
+
+block contenido
+    main.container.mt-5
+        h1.text-center.mb-5 #{pagina}
+
+        .row
+            each partido in partidos
+                .col-md-6.col-lg-4.mb-4
+                    .card.shadow
+                        img.card-img-top(
+                            src=`/img/partidos_${partido.imagen}.jpg`,
+                            alt="imagen partido"
+                        )
+                        .card-body
+                            h2 Real Madrid vs #{partido.rival}
+
+                            p 📅 #{moment(partido.fecha).format('DD/MM/YYYY')} - #{partido.hora}
+                            p 🏟 Estadio: #{partido.estadio}
+
+                            p= partido.descripcion.substring(0, 100) + '...'
+
+                            a.btn.btn-dark.btn-block(
+                                href=`/partidos/${partido.slug}`
+                            ) Ver Partido
+
+                            a.btn.btn-success.btn-block(
+                                href=`/comprar/${partido.slug}`
+                            ) Comprar entrada
+
+

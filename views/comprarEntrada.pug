@@ -1,0 +1,73 @@
+extends ./layout/index
+
+block contenido
+    main.container.mt-5
+        h1.text-center.mb-5 #{pagina}
+
+        .row.justify-content-center
+            .col-lg-10
+                //- Tarjeta principal
+                .card.shadow.border-0
+                    .card-body.p-5
+
+                        //- Información del partido
+                        h2.text-center.mb-3
+                            | Experiencia futbolística:
+                            span.text-success  #{resultado.titulo}
+
+                        p.text-center.text-muted.mb-4
+                            | Vive el partido en directo con el mejor ambiente del mundo.
+
+
+
+                        if (errores)
+                            each error in errores
+                                .alert.alert-danger.text-center.mb-4= error.mensaje
+
+                        //- Formulario de compra
+                        form(action="/comprar" method="POST")
+                            .row
+                                .col-md-6
+                                    .form-group.mb-3
+                                        label.font-weight-bold(for="nombre") Nombre
+                                        input#nombre.form-control(
+                                            type="text",
+                                            placeholder="Tu nombre",
+                                            name="nombre",
+                                            value=nombre
+                                        )
+
+                                .col-md-6
+                                    .form-group.mb-3
+                                        label.font-weight-bold(for="apellidos") Apellidos
+                                        input#apellidos.form-control(
+                                            type="text",
+                                            placeholder="Tus apellidos",
+                                            name="apellidos",
+                                            value=apellidos
+                                        )
+
+                                .col-md-6
+                                    .form-group.mb-3
+                                        label.font-weight-bold(for="correo") Correo electrónico
+                                        input#correo.form-control(
+                                            type="email",
+                                            placeholder="Tu correo electrónico",
+                                            name="correo",
+                                            value=correo
+                                        )
+
+                                .col-md-6
+                                    .form-group.mb-4
+                                        label.font-weight-bold(for="telefono") Teléfono
+                                        input#telefono.form-control(
+                                            type="text",
+                                            placeholder="Tu número de teléfono",
+                                            name="telefono",
+                                            value=telefono
+                                        )
+
+                            input#slug(type="hidden", name="slug", value=resultado.slug)
+
+                            button.btn.btn-success.btn-lg.btn-block.mt-4(type="submit")
+                                | Confirmar compra de entrada

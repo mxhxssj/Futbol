@@ -1,0 +1,61 @@
+extends ./layout/index
+
+block contenido
+    main.container.mt-5
+        h1.text-center.mt-5 #{pagina}
+
+        blockquote.text-center.mb-5
+            p Completa la ficha del jugador del Real Madrid 🤍
+
+        .row.justify-content-center
+            .col-md-8
+
+                // Mostrar errores si existen
+                if errores
+                    each error in errores
+                        .alert.alert-danger.text-center= error.mensaje
+
+                // Formulario jugador
+                form(action="/ficha" method="POST")
+
+
+                    .form-group
+                        label(for="nombre") Nombre del jugador
+                        input#nombre.form-control(
+                            type="text",
+                            name="nombre",
+                            placeholder="Ej: Vinicius Jr",
+                            value=nombre
+                        )
+
+                    .form-group
+                        label(for="posicion") Posición
+                        select#posicion.form-control(name="posicion")
+                            option(value="") -- Selecciona posición --
+                            option(value="Portero") Portero
+                            option(value="Defensa") Defensa
+                            option(value="Centrocampista") Centrocampista
+                            option(value="Delantero") Delantero
+
+                    .form-group
+                        label(for="nacionalidad") Nacionalidad
+                        input#nacionalidad.form-control(
+                            type="text",
+                            name="nacionalidad",
+                            placeholder="Ej: Brasil",
+                            value=nacionalidad
+                        )
+
+                    .form-group
+                        label(for="dorsal") Dorsal
+                        input#dorsal.form-control(
+                            type="number",
+                            name="dorsal",
+                            placeholder="Ej: 7",
+                            value=dorsal
+                        )
+
+                    input.btn.btn-dark.btn-block.mt-4(type="submit", value="Guardar Jugador")
+
+
+        include ./layout/layout_ficha

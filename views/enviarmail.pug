@@ -1,0 +1,26 @@
+extends ./layout/index
+
+block contenido
+    main.container.mt-5
+        h1.text-center.mt-5 #{pagina}
+
+        .row
+            .col-md-12
+                h2.text-center
+                    | Partido:
+                    strong  #{resultado.rival}
+
+        //- Mensaje de confirmación
+        .row
+            .col-md-12.text-center.mt-4
+                p.font-weight-bold
+                    | Se ha enviado un correo de confirmación.
+                p
+                    | En breve nos pondremos en contacto con usted.
+                p.font-weight-bold
+                    | Gracias por confiar en nosotros.
+
+        //- Botón para volver a partidos
+        .row
+            .col-md-12.text-center.mt-4
+                a.btn.btn-primary(href='/partidos') Volver a Partidos

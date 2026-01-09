@@ -1,0 +1,67 @@
+extends ./layout/index
+
+block contenido
+    main.container.mt-5
+        .row.align-items-center
+            //- Imagen
+            .col-md-5.mb-4.mb-md-0
+                img(
+                    src="/img/agencia.jpg",
+                    alt="Sobre nuestra agencia",
+                    class="img-fluid rounded shadow"
+                )
+
+            //- Texto
+            .col-md-7
+                h1.mb-4 #{pagina}
+                blockquote
+                    | Somos una agencia especializada en experiencias futbolísticas
+                    | únicas, conectando a aficionados con los partidos, equipos y
+                    | ciudades más emblemáticas del fútbol mundial.
+
+                p
+                    | Acompañamos a nuestros clientes en cada paso del viaje, desde la
+                    | planificación hasta el regreso, garantizando una experiencia
+                    | segura, auténtica y cargada de pasión por el fútbol.
+
+                p
+                    | Nuestra misión es unir a la afición con el deporte rey, creando
+                    | recuerdos inolvidables a través de viajes diseñados para vivir
+                    | el fútbol desde dentro.
+
+    //- Valores de la agencia
+    .listado-iconos
+        .container.mt-5.py-5.text-center
+            .row
+                .col-md-4.mb-4
+                    img(
+                        src="/img/seguridad.jpg",
+                        alt="Seguridad garantizada",
+                        class="img-fluid mb-4"
+                    )
+                    h2.mb-3 Seguridad
+                    p
+                        | Viajes organizados con total confianza, atención personalizada
+                        | y acompañamiento durante toda la experiencia.
+
+                .col-md-4.mb-4
+                    img(
+                        src="/img/viaje.jpeg",
+                        alt="Destinos futbolísticos",
+                        class="img-fluid mb-4"
+                    )
+                    h2.mb-3 Destinos únicos
+                    p
+                        | Acceso a los estadios más emblemáticos y a las ciudades con mayor
+                        | tradición futbolística del mundo.
+
+                .col-md-4.mb-4
+                    img(
+                        src="/img/precio.jpg",
+                        alt="Mejor precio",
+                        class="img-fluid mb-4"
+                    )
+                    h2.mb-3 Mejor relación calidad-precio
+                    p
+                        | Experiencias completas adaptadas a distintos presupuestos, sin
+                        | renunciar a la calidad y la emoción del fútbol.
