@@ -1,6 +1,6 @@
-import { Partido } from "../models/Partido.js";
+import { Partido } from "../models/partido.js";
 import { Aficion } from "../models/aficcion.js";
-import { Jugador } from "../models/Jugador.js";
+import { Jugador } from "../models/jugador.js";
 
 import moment from 'moment';
 
